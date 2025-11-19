@@ -8,9 +8,9 @@ import Workflow from '@/app/components/workflow-app'
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-3xl font-bold underline">Hello World</h1>
-        <Workflow />
+        {/* <Workflow />  */}
       </div>
     </BrowserRouter>
   )
