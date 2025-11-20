@@ -29,7 +29,7 @@ import {
 import type { InjectWorkflowStoreSliceFn } from '@/app/components/workflow/store'
 import { createWorkflowSlice } from './store/workflow/workflow-slice'
 import WorkflowAppMain from './components/workflow-main'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'react-router-dom'
 
 import { fetchRunDetail } from '@/service/log'
 import { useGetRunAndTraceUrl } from './hooks/use-get-run-and-trace-url'
@@ -94,7 +94,7 @@ const WorkflowAppWithAdditionalContext = () => {
     return []
   }, [data])
 
-  const searchParams = useSearchParams()
+  const [searchParams] = useSearchParams()
   const { getWorkflowRunAndTraceUrl } = useGetRunAndTraceUrl()
   const replayRunId = searchParams.get('replayRunId')
 

@@ -113,10 +113,10 @@ const BasePanel: FC<BasePanelProps> = ({
   const {
     pendingSingleRun,
     setPendingSingleRun,
-  } = useStore(s => ({
+  } = useStore(useShallow(s => ({
     pendingSingleRun: s.pendingSingleRun,
     setPendingSingleRun: s.setPendingSingleRun,
-  }))
+  })))
 
   const reservedCanvasWidth = 400 // Reserve the minimum visible width for the canvas
 

@@ -49,12 +49,12 @@ const getStringConfig = (
 export const API_PREFIX = getStringConfig(
   import.meta.env.VITE_API_PREFIX,
   DatasetAttr.DATA_API_PREFIX,
-  'http://localhost:5001/console/api',
+  'http://localhost/console/api',
 )
 export const PUBLIC_API_PREFIX = getStringConfig(
   import.meta.env.VITE_PUBLIC_API_PREFIX,
   DatasetAttr.DATA_PUBLIC_API_PREFIX,
-  'http://localhost:5001/api',
+  'http://localhost/api',
 )
 export const MARKETPLACE_API_PREFIX = getStringConfig(
   import.meta.env.VITE_MARKETPLACE_API_PREFIX,

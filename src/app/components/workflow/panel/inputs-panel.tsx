@@ -5,6 +5,7 @@ import {
 } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNodes } from 'reactflow'
+import { useShallow } from 'zustand/react/shallow'
 import FormItem from '../nodes/_base/components/before-run-form/form-item'
 import {
   BlockEnum,
@@ -32,10 +33,10 @@ type Props = {
 const InputsPanel = ({ onRun }: Props) => {
   const { t } = useTranslation()
   const workflowStore = useWorkflowStore()
-  const { inputs } = useStore(s => ({
+  const { inputs } = useStore(useShallow(s => ({
     inputs: s.inputs,
     setInputs: s.setInputs,
-  }))
+  })))
   const fileSettings = useHooksStore(s => s.configsMap?.fileSettings)
   const nodes = useNodes<StartNodeType>()
   const files = useStore(s => s.files)

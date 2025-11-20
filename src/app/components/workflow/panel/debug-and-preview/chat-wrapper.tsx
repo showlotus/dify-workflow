@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useImperativeHandle, useMemo } from 'react'
 import { useNodes } from 'reactflow'
+import { useShallow } from 'zustand/react/shallow'
 import { BlockEnum } from '../../types'
 import {
   useStore,
@@ -47,10 +48,10 @@ const ChatWrapper = (
   const startVariables = startNode?.data.variables
   const appDetail = useAppStore(s => s.appDetail)
   const workflowStore = useWorkflowStore()
-  const { inputs, setInputs } = useStore(s => ({
+  const { inputs, setInputs } = useStore(useShallow(s => ({
     inputs: s.inputs,
     setInputs: s.setInputs,
-  }))
+  })))
 
   const initialInputs = useMemo(() => {
     const initInputs: Record<string, any> = {}
