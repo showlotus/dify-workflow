@@ -3,37 +3,37 @@ import i18n from 'i18next'
 import { camelCase } from 'lodash-es'
 import { initReactI18next } from 'react-i18next'
 
-// 静态导入所有 en-US 翻译资源
-import appAnnotation from '../i18n/en-US/app-annotation'
-import appApi from '../i18n/en-US/app-api'
-import appDebug from '../i18n/en-US/app-debug'
-import appLog from '../i18n/en-US/app-log'
-import appOverview from '../i18n/en-US/app-overview'
-import app from '../i18n/en-US/app'
-import billing from '../i18n/en-US/billing'
-import common from '../i18n/en-US/common'
-import custom from '../i18n/en-US/custom'
-import datasetCreation from '../i18n/en-US/dataset-creation'
-import datasetDocuments from '../i18n/en-US/dataset-documents'
-import datasetHitTesting from '../i18n/en-US/dataset-hit-testing'
-import datasetPipeline from '../i18n/en-US/dataset-pipeline'
-import datasetSettings from '../i18n/en-US/dataset-settings'
-import dataset from '../i18n/en-US/dataset'
-import education from '../i18n/en-US/education'
-import explore from '../i18n/en-US/explore'
-import layout from '../i18n/en-US/layout'
-import login from '../i18n/en-US/login'
-import oauth from '../i18n/en-US/oauth'
-import pipeline from '../i18n/en-US/pipeline'
-import pluginTags from '../i18n/en-US/plugin-tags'
-import pluginTrigger from '../i18n/en-US/plugin-trigger'
-import plugin from '../i18n/en-US/plugin'
-import register from '../i18n/en-US/register'
-import runLog from '../i18n/en-US/run-log'
-import share from '../i18n/en-US/share'
-import time from '../i18n/en-US/time'
-import tools from '../i18n/en-US/tools'
-import workflow from '../i18n/en-US/workflow'
+// 静态导入所有 zh-Hans 翻译资源
+import appAnnotation from '../i18n/zh-Hans/app-annotation'
+import appApi from '../i18n/zh-Hans/app-api'
+import appDebug from '../i18n/zh-Hans/app-debug'
+import appLog from '../i18n/zh-Hans/app-log'
+import appOverview from '../i18n/zh-Hans/app-overview'
+import app from '../i18n/zh-Hans/app'
+import billing from '../i18n/zh-Hans/billing'
+import common from '../i18n/zh-Hans/common'
+import custom from '../i18n/zh-Hans/custom'
+import datasetCreation from '../i18n/zh-Hans/dataset-creation'
+import datasetDocuments from '../i18n/zh-Hans/dataset-documents'
+import datasetHitTesting from '../i18n/zh-Hans/dataset-hit-testing'
+import datasetPipeline from '../i18n/zh-Hans/dataset-pipeline'
+import datasetSettings from '../i18n/zh-Hans/dataset-settings'
+import dataset from '../i18n/zh-Hans/dataset'
+import education from '../i18n/zh-Hans/education'
+import explore from '../i18n/zh-Hans/explore'
+import layout from '../i18n/zh-Hans/layout'
+import login from '../i18n/zh-Hans/login'
+import oauth from '../i18n/zh-Hans/oauth'
+import pipeline from '../i18n/zh-Hans/pipeline'
+import pluginTags from '../i18n/zh-Hans/plugin-tags'
+import pluginTrigger from '../i18n/zh-Hans/plugin-trigger'
+import plugin from '../i18n/zh-Hans/plugin'
+import register from '../i18n/zh-Hans/register'
+import runLog from '../i18n/zh-Hans/run-log'
+import share from '../i18n/zh-Hans/share'
+import time from '../i18n/zh-Hans/time'
+import tools from '../i18n/zh-Hans/tools'
+import workflow from '../i18n/zh-Hans/workflow'
 
 const requireSilent = async (lang: string, namespace: string) => {
   let res
@@ -41,7 +41,7 @@ const requireSilent = async (lang: string, namespace: string) => {
     res = (await import(`../i18n/${lang}/${namespace}`)).default
   }
   catch {
-    res = (await import(`../i18n/en-US/${namespace}`)).default
+    res = (await import(`../i18n/zh-Hans/${namespace}`)).default
   }
 
   return res
@@ -91,7 +91,7 @@ export const loadLangResources = async (lang: string) => {
   return resources
 }
 
-// Load en-US resources first to make sure fallback works
+// Load zh-Hans resources first to make sure fallback works
 // 使用静态导入的翻译资源
 const getInitialTranslations = () => {
   const en_USResources = {
@@ -127,7 +127,7 @@ const getInitialTranslations = () => {
     workflow,
   }
   return {
-    'en-US': {
+    'zh-Hans': {
       translation: en_USResources,
     },
   }
@@ -136,7 +136,7 @@ const getInitialTranslations = () => {
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     lng: undefined,
-    fallbackLng: 'en-US',
+    fallbackLng: 'zh-Hans',
     resources: getInitialTranslations(),
   })
 }
